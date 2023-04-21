@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+      body{
+        height: 100%;
+        font-family: 'Cairo', sans-serif;
+      }
+    .example { 
+      margin: 20px auto;
+      height: 100% !important;
+      font-family: 'Cairo', sans-serif;
+    }
+    
+      #message{
+        
+        text-align: center;
+        font-size: 26px;
+        font-family: 'Cairo', sans-serif;
+  font-weight: 500;
+
+
+      }
+      #message button{
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin: 20px 0;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-family: 'Cairo', sans-serif;
+}
+
+
+      #text {
+  opacity: 0;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 500;
+ font-size: 18px;
+      }
+      #next-text{
+        opacity: 0;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 500;
+ font-size: 18px;
+      } 
+      #message #next-btn { 
+        text-align: center;
+       font-size: 16px;
+        width: 100%;
+        font-family: 'Cairo', sans-serif;
+      }
+
+
+
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>⏰ميعاد امتحانات الثانوية العامة</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/flipdown/flipdown.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/flipdown/flipdown.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </head>
+  <body>
+    <div class="example">
+      <h1 style="font-family: 'Cairo', sans-serif; font-weight: 500; font-size: 35px;">⏰ميعاد امتحانات الثانوي العامة </h1>
+      <h2 id="The-end" style="color:white; font-size: 30px; text-align: center; font-family: 'Cairo', sans-serif;">🔥🔥🔥🔥🔥هم العزيمة </h2>
+      <div id="flipdown" class="flipdown"></div>
+      <div id="message">
+        <button id="show-btn">رسالة</button>
+       
+        <p id="text" style="display:none;">
+          عافر و سيبها على الله و ادعي ربك مش بس بالنتيجة <br> 
+          لكن انت كمان تدعي عشان تتغير و تبدأ صفحة جديدة في حياتك <br>
+          و توقف التليفون و كل حاجة غلط في حياتك دلوقتي و مشوار الالف ميل بيدأ بخطوة واحدة فقط 
+        </p>
+
+        <button id="next-btn" style="display:none;">أزاي اعمل كدة</button>
+        <p id="next-text" style="display:none;">
+          بالاستعانة بالله في كل قعدة مذاكرة <br> 
+          اما الجزء الخاص بيك بقا هو انك تسجل الوقت بتاعك 
+          <br>
+          و تشوف الثغرات بتاعتك في موادك 
+          <br>
+          اسأل اهل الخبرة (زمايكلك الدحيحة)
+        </p>
+      </div>
+    </div>
+    <script>
+  const showBtn = document.getElementById('show-btn');
+const nextBtn = document.getElementById('next-btn');
+const text = document.getElementById('text');
+const nextText = document.getElementById('next-text');
+
+
+
+showBtn.addEventListener('click', function() {
+  if (text.style.display === 'none' && nextText.style.display ==="none") {
+    text.style.display = 'block';
+    fadeIn(text,nextText);
+    
+    setTimeout(() => {
+      nextBtn.style.display = 'block';
+      fadeIn(nextBtn);
+    }, 4500);
+  } else {
+    fadeOut(text);
+    
+    setTimeout(() => {
+      fadeOut(nextBtn);
+    setTimeout(() =>{
+      nextBtn.style.display = "none"
+    })
+    }, 300);
+    
+    fadeOut(nextText)
+  }
+
+});
+
+nextBtn.addEventListener('click', function() {
+  if (nextText.style.display === 'none') {
+    nextText.style.display = 'block';
+    fadeIn(nextText);
+  } else {
+    fadeOut(nextText);
+  }
+});
+
+function fadeIn(element) {
+  element.style.opacity = 0;
+
+  let fadeInInterval = setInterval(function() {
+    element.style.opacity = Number(element.style.opacity) + 0.18;
+    if (element.style.opacity >= 1) {
+      clearInterval(fadeInInterval);
+    }
+  }, 30);
+}
+
+function fadeOut(element) {
+  element.style.opacity = 1;
+
+  let fadeOutInterval = setInterval(function() {
+    element.style.opacity = Number(element.style.opacity) - 0.1;
+    if (element.style.opacity <= 0) {
+      element.style.display = 'none';
+      clearInterval(fadeOutInterval);
+    }
+  }, 30);
+}
+showBtn.onclick= function(){
+
+ 
+
+}
+    </script>
+  </body>
+</html>
